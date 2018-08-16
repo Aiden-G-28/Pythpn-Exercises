@@ -1,0 +1,93 @@
+MAIN.PY FOR CODE AND NEEDS WORDBANK
+
+import random
+import sys
+
+score = 0
+
+def hangman():
+  if score == 1:
+    print(' ______')
+    print(' |    |')
+    print(' |    O')
+    print(' |   -|-')
+    print(' |    | ')
+    print(' |   /  ')
+    print(' |       ')
+    print('==========')
+  elif score == 2:
+    print(' ______')
+    print(' |    |')
+    print(' |    O')
+    print(' |   -|-')
+    print(' |    | ')
+    print(' |      ')
+    print(' |       ')
+    print('==========')
+  elif score == 3:
+    print(' ______')
+    print(' |    |')
+    print(' |    O')
+    print(' |    |-')
+    print(' |    | ')
+    print(' |      ')
+    print(' |       ')
+    print('==========')
+  elif score == 4:
+    print(' ______')
+    print(' |    |')
+    print(' |    O')
+    print(' |    | ')
+    print(' |    | ')
+    print(' |      ')
+    print(' |       ')
+    print('==========')
+  elif score == 5:
+    print(' ______')
+    print(' |    |')
+    print(' |    O')
+    print(' |      ')
+    print(' |      ')
+    print(' |      ')
+    print(' |       ')
+    print('==========')
+  elif score == 6:
+    print('  ______                             _____      ________            ')
+    print(' |            /\      |\        /|  |          |        |  \        /')
+    print(' |           /  \     | \      / |  |____      |        |   \      /')
+    print(' |   __     /____\    |  \    /  |  |          |        |    \    /')
+    print(' |     |   /      \   |   \  /   |  |          |        |     \  /')
+    print(' |_____|  /        \  |    \/    |  |_____     |________|      \/')
+    sys.exit()
+
+
+print('Welcome to Hangman!')
+print(' ______')
+print(' |    |')
+print(' |    O')
+print(' |   -|-')
+print(' |    | ')
+print(' |   / \ ')
+print(' |       ')
+print('==========')
+
+words = [line.strip() for line in open('wordbank.txt', 'r')] 
+random_word = random.choice(words)
+
+guess = list('_' * len(random_word))
+
+while list(random_word) != guess:
+  print(' '.join(guess))  # This joins the guess with the blank spaces.
+  guess_letter = input('guess a letter: ').upper()
+  if guess_letter not in random_word:
+    print("Incorrect")
+    score += 1
+    hangman()
+  else:
+    i = 0
+    while i < len(random_word):
+      if list(random_word)[i] == guess_letter:
+        guess[i] = guess_letter
+      i += 1
+
+print("You\'re right! it\'s " + random_word + '.')
