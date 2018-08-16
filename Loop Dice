@@ -1,0 +1,12 @@
+import random
+
+Min = 1
+Max = 6
+
+roll_again = 'yes'
+
+while roll_again == 'yes' or roll_again == 'y':
+  print("Rolling Dice")
+  print(random.randint(Min,Max))
+  print(random.randint(Min,Max))
+  roll_again = input("Roll Again?")
