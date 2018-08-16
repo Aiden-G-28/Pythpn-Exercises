@@ -1,0 +1,21 @@
+#The [] next to the string (s) will choose which letters in the string to print. 
+#Counting a string starts at 0 for the last letter, and includes spaces and symbols (#$%&?!@)
+#Numbers are divides by a :
+#The first number is the selected number, or starting number. (Godzilla!!! [4] = i)
+                                                             #(012345678910)
+#The second number will be where the print will stop counting ([4:8] = illa! )
+#The third number will determine a counting method (4:8:1 = illa!  4:8:2 = ila  4:8:-1 = !alli)
+#Any of these numbers can be left blank ([start from beginning:go to the end of string, count each number left to right])
+# These slices can be added to or subtracted ([4:8 - 2 = ill)
+
+#Put in word to be sliced
+s = input()
+print(s[2]) #Third Letter
+print(s[-2]) #Second To Last Letter
+print(s[0:5]) #First Five Letters
+print(s[0: -2]) #Removes Last Two Letters
+print(s[0::2]) #Counts Even integers, starting at Zero
+print(s[1::2]) #Counts Odd Integers, starting at One
+print(s[::-1]) #Prints word In Reverse
+print(s[::-2]) #Prints Every Other Letter In Reverse
+print(len(s)) # Counts Up The Number Of Letters
